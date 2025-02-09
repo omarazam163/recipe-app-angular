@@ -30,6 +30,7 @@ export class CategoryComponent {
         if(params.categoryname == 'all')
         {
           this._GetmealsService.getAllMeald().subscribe((data: any) => {
+          this.Meals = [];
           this.Meals = data.meals.map((x:any)=>{
             return {
               strMeal:x.strMeal,
@@ -43,6 +44,7 @@ export class CategoryComponent {
         this._GetmealsService
           .getMealsByCategory(params.categoryname)
           .subscribe((data: any) => {
+            this.Meals=[];
             this.Meals = data.meals;
           });
         }
